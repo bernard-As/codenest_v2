@@ -40,6 +40,7 @@ build/Release
 
 # Dependency directories
 node_modules/
+build/
 jspm_packages/
 
 # Snowpack dependency directory (https://snowpack.dev/)
@@ -104,13 +105,7 @@ dist
 .temp
 .cache
 
-# vitepress build output
-**/.vitepress/dist
-
-# vitepress cache directory
-**/.vitepress/cache
-
-# Docusaurus cache and generated files
+# Docusaurus cache and  generated files
 .docusaurus
 
 # Serverless directories
@@ -128,9 +123,21 @@ dist
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
 
-# yarn v2
+node_modules/
+venv/
+n_venv/
+__pycache__/
+migrations/
+media/
+settings.py*
+__init__.py*
+#settings files because each user has set his postgres password
+# Run this command instead git update-index --assume-unchange edu_project/settings.py
+
+# yarn  v2
 .yarn/cache
 .yarn/unplugged
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+.env*
