@@ -7,6 +7,7 @@ import ProjectDetailSkeleton from '../components/project/ProjectDetailSkeleton';
 import FilePreviewer from '../components/project/FilePreviewer';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeftIcon, PencilSquareIcon, TrashIcon } from '@heroicons/react/24/outline'; // Example icons
+import { BackgroundLines } from '../components/ui/aceternity/background-lines';
 
 
 // Variants for page sections
@@ -94,6 +95,19 @@ const ProjectDetailPage: React.FC = observer(() => {
 
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <BackgroundLines
+              className="fixed inset-0 w-full h-full -z-10" // Takes full space and is behind
+              // Example props for darker theme (these are hypothetical, check BoxesCore actual props):
+              // backgroundColor="black" // Make it transparent if main div has bg
+              // boxColorLight="rgba(59, 130, 246, 0.3)" // Lighter blue for boxes in light mode
+              // boxColorDark="rgba(30, 58, 138, 0.4)"   // Darker blue for boxes in dark mode (more subtle)
+              // lineColorLight="rgba(156, 163, 175, 0.1)" // Light gray lines
+              // lineColorDark="rgba(55, 65, 81, 0.2)"    // Darker gray lines
+              children={null}
+              // lineColorDark="rgba(55, 65, 81, 0.15)"
+            />
+                   <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 z-0 relative">
+
       {/* Back Button */}
       <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.1 }}>
         <Link
@@ -244,7 +258,7 @@ const ProjectDetailPage: React.FC = observer(() => {
           </motion.div>
         </div>
       )}
-
+</div>
     </div>
   );
 });

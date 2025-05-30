@@ -22,6 +22,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/auth/', include('apps.users.urls')), # For user auth
     path('api/', include('apps.projects.urls')), # Include project URLs under /api/
+    path('api/ai/', include('apps.ai_features.urls')), # Add this line
+
 
 ]
 if settings.DEBUG:

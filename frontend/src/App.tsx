@@ -4,7 +4,9 @@ import { observer } from 'mobx-react-lite';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import { Outlet } from 'react-router-dom';
-
+import ChatIcon from './components/chat/ChatIcon';     // Import ChatIcon
+import ChatWindow from './components/chat/ChatWindow'; // Import ChatWindow
+import { AnimatePresence } from 'framer-motion'; 
 const AppLayout: React.FC = observer(() => {
   // uiStore.theme is applied globally via UIStore's applyTheme method,
   // so no direct observation needed here just for applying the class to <html>.
@@ -16,6 +18,12 @@ const AppLayout: React.FC = observer(() => {
         <Outlet />
       </main>
       <Footer />
+
+       {/* Chat Components */}
+      <ChatIcon />
+      <AnimatePresence> {/* Required for exit animations on ChatWindow */}
+        <ChatWindow />
+      </AnimatePresence>
     </div>
   );
 });

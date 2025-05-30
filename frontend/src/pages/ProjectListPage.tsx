@@ -6,6 +6,7 @@ import ProjectCard from '../components/project/ProjectCard';
 import ProjectCardSkeleton from '../components/project/ProjectCardSkeleton';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom'; // For "Create Project" button
+import { BackgroundLines } from '../components/ui/aceternity/background-lines';
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -40,6 +41,24 @@ const ProjectListPage: React.FC = observer(() => {
 
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+       {/* BoxesCore as full background */}
+      {/*
+        The key is to make BoxesCore fixed or absolute to cover the viewport
+        and ensure its z-index is behind the content.
+        You might need to adjust props of BoxesCore for color scheme.
+        Example: If BackgroundLines takes color props or uses CSS variables.
+      */}
+      <BackgroundLines
+        className="absolute inset-0 w-full h-full -z-10" // Takes full space and is behind
+        // Example props for darker theme (these are hypothetical, check BoxesCore actual props):
+        // backgroundColor="black" // Make it transparent if main div has bg
+        // boxColorLight="rgba(59, 130, 246, 0.3)" // Lighter blue for boxes in light mode
+        // boxColorDark="rgba(30, 58, 138, 0.4)"   // Darker blue for boxes in dark mode (more subtle)
+        // lineColorLight="rgba(156, 163, 175, 0.1)" // Light gray lines
+        // lineColorDark="rgba(55, 65, 81, 0.2)"    // Darker gray lines
+        children={null}
+      />
+       <div className="container mx-auto px-4 sm:px-6 lg:px-8 z-0 relative">
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
           Explore Projects
@@ -113,6 +132,7 @@ const ProjectListPage: React.FC = observer(() => {
       )}
 
       {/* TODO: Add Pagination controls here when implemented */}
+      </div>
     </div>
   );
 });
