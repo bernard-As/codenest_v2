@@ -386,7 +386,7 @@ def get_full_media_url(request, filename):
 
 
 class GeminiChatView(APIView):
-    permission_classes = [permissions.IsAuthenticated] # Users must be logged in to use the chatbot
+    permission_classes = [permissions.AllowAny] # Allow all connections (no authentication required)
 
     def post(self, request, *args, **kwargs):
         if not SDK_CONFIGURED_SUCCESSFULLY:
